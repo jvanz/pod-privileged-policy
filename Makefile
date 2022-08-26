@@ -27,3 +27,20 @@ test: fmt lint
 clean:
 	cargo clean
 	rm -f policy.wasm annotated-policy.wasm
+
+sbom-tool:
+	curl -Lo sbom-tool https://github.com/microsoft/sbom-tool/releases/download/v0.1.13/sbom-tool-linux-x64
+	chmod +x sbom-tool
+
+.PHONY: sbom
+sbom: sbom-tool
+	./sbom-tool generate \
+		-D true \
+		-V Verbose \
+		-b ./target/wasm32-wasi/release/ \
+		-bc . \
+		-m . \
+		-nsb https://kubewarden.io \
+		-nsu kubewarden-policy \
+		-pn pod-pribileged-policy \
+		-pv test

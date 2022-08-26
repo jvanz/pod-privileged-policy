@@ -24,11 +24,11 @@ jobs:
       # Required by cosign keyless signing
       id-token: write
 
-    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-rust.yml@v1
+    uses: jvanz/github-actions/.github/workflows/reusable-release-policy-rust.yml@v1
     with:
       input-wasm: pod_privileged_policy
-      oci-target: ghcr.io/kubewarden/policies/pod-privileged
-    
+      oci-target: ghcr.io/jvanz/policies/pod-privileged
+
     secrets:
       workflow-pat: ${{ secrets.WORKFLOW_PAT }}
-    
+
