@@ -11,7 +11,7 @@ jobs:
 
   test:
     name: run tests and linters
-    uses: kubewarden/github-actions/.github/workflows/reusable-test-policy-rust.yml@v3.4.1
+    uses: kubewarden/github-actions/.github/workflows/reusable-test-policy-rust.yml@ba8e57aea2e8211b3c2c69f3ab218e73852e6d13 # v3.4.1
 
   release:
     needs: test
@@ -23,6 +23,6 @@ jobs:
       # Required by cosign keyless signing
       id-token: write
 
-    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-rust.yml@v3.4.1
+    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-rust.yml@ba8e57aea2e8211b3c2c69f3ab218e73852e6d13 # v3.4.1
     with:
       oci-target: ghcr.io/${{ github.repository_owner }}/policies/pod-privileged
