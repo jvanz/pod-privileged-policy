@@ -3,4 +3,4 @@ name: Continuous integration
 jobs:
   test:
     name: run tests and linters
-    uses: jvanz/github-actions/.github/workflows/reusable-test-policy-rust.yml@cargoaction
+    uses: jvanz/github-actions/.github/workflows/reusable-test-policy-rust.yml@main
